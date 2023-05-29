@@ -48,7 +48,12 @@ fun ex457(matrix: List<List<Double>>): MutableList<Double> {
     return values
 }
 
-//ex456?
+fun ex456(matrix: List<List<Double>>): MutableList<Double> {
+    val values = mutableListOf<Double>()
+    matrix.forEach { row -> row.forEach { element -> if (element > 0) values.add(element) } }
+    if (values.isEmpty()) println("no negative elements")
+    return values
+}
 
 fun ex455(matrix: List<List<Double>>): Double {
     val diagonal = List(matrix.size) { matrix[it][it] }
