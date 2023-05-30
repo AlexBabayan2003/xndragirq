@@ -11,17 +11,15 @@ fun main() {
 fun Double.square(): Double = this * this
 
 
-//Skhala resulty tali, reduce() na hastat xndiry vonc chisht anem?
-
-fun ex460(matrix: List<List<Double>>): Double{
+fun ex460(matrix: List<List<Double>>): Double {
     val values = mutableListOf<Double>()
+    val p = 1.0
     matrix.forEach { row ->
         row.forEach { element ->
-            if (element % 2.0 == 0.0) values.add(element)
+            if (element % 2.0 == 0.0) values.add(element.square() * p)
         }
     }
-
-    return values.reduce { a, b -> a.square() * b.square() }
+    return values.reduce { a, b -> a * b }
 }
 
 fun ex459(matrix: List<List<Double>>) {
