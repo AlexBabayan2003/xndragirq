@@ -1,0 +1,48 @@
+fun main() {
+    var matrix = listOf(
+        listOf(2.0, 0.2, 4.2, 2.3),
+        listOf(3.0, 4.0, 2.5, 1.1),
+        listOf(0.1, 2.1, 0.3, 6.0)
+    )
+}
+
+fun ex499(matrix: List<List<Double>>) {
+
+    var highestNumber = matrix[0][0]
+    var minNumber = matrix[0][0]
+
+    matrix.forEach { row ->
+        row.forEach { element ->
+            if (element > highestNumber) highestNumber = element
+            if (element < minNumber) minNumber = element
+        }
+    }
+
+    var arithmeticMeanValue = ((highestNumber + minNumber) / 2)
+    println(
+        """arithmetic mean  of the highest value: "$highestNumber" 
+and the lowest value: "$minNumber" is: "$arithmeticMeanValue"
+""".trimIndent()
+    )
+
+    matrix.forEach { row ->
+        row.forEach { element ->
+            if (element % 2.0 == 0.0 && element > arithmeticMeanValue) println(element)
+        }
+    }
+}
+
+fun ex496(matrix: List<List<Double>>): List<Double> {
+    val diagonal = List(matrix.size) { i -> matrix[i][i] }
+    return diagonal.sorted()
+}
+
+fun ex495(matrix: List<List<Double>>): List<List<Double>> {
+    return matrix.map { matrix.last().sortedDescending() }
+}
+
+fun ex494(matrix: List<List<Double>>): List<List<Double>> {
+    return matrix.map { matrix.first().sorted() }
+}
+
+//ex491-493, 497-498, 500-504: null
